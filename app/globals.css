@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Light theme with subtle graph paper grid background */
+html, body {
+  background-color: #fafafa;
+  color: #0b1220;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: -1px -1px;
+}
+
+@layer components {
+  .container-grid {
+    @apply mx-auto px-4;
+    max-width: 1280px;
+  }
+
+  .card {
+    @apply bg-white/70 backdrop-blur-sm border border-black/5 rounded-2xl shadow-sm transition-transform transition-shadow duration-200 hover:shadow-lg hover:scale-105;
+  }
+
+  .badge-dot {
+    @apply inline-flex items-center gap-2 text-xs text-black/60;
+  }
+
+  .chip {
+    @apply text-sm px-3 py-1 rounded-full bg-black/5 border border-black/10;
+  }
+
+  .muted {
+    @apply text-black/60;
+  }
+
+  .section-title {
+    @apply text-[11px] uppercase tracking-wider text-black/60 font-semibold;
+  }
+}
