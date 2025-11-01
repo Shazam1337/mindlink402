@@ -48,7 +48,7 @@ export default function SubmitRaid({ onMockSubmit }: Props) {
       <div className="mt-5 pt-4 border-t border-neon-cyan/20 text-xs text-neon-cyan/60 space-y-1.5">
         <p className="flex items-start gap-2">
           <span className="text-neon-cyan">•</span>
-          <span>Tag $PULSE402 or CA in your signal</span>
+          <span>Tag $SYN402 or CA in your signal</span>
         </p>
         <p className="flex items-start gap-2">
           <span className="text-neon-cyan">•</span>
