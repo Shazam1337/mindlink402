@@ -8,6 +8,7 @@ type State = {
   payments: Payment[];
   fees: FeeClaim;
   pendingCount: number;
+  pending: Raid[];
 };
 
 export function useMockActivity() {
@@ -17,6 +18,7 @@ export function useMockActivity() {
     payments: [],
     fees: { ts: Date.now(), totalSol: 0 },
     pendingCount: 0,
+    pending: [],
   }));
 
   const timers = useRef<number[]>([]);
@@ -75,5 +77,8 @@ export function useMockActivity() {
     return () => { timers.current.forEach(t => clearInterval(t)); };
   }, []);
 
-  return useMemo(() => state, [state]);
+  return useMemo(() => {
+    const pending = state.raids.filter(r => r.status === "pending");
+    return { ...state, pending };
+  }, [state]);
 }

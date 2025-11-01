@@ -1,7 +1,7 @@
 {
-  "name": "Pulse402",
+  "name": "SYNAPSE402",
   "version": "1.0.0",
-  "description": "",
+  "description": "The Neural Network of the Community",
   "main": "next.config.js",
   "directories": {
     "lib": "lib"
