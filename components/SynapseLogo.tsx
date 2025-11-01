@@ -1,13 +1,13 @@
 "use client";
 
-export default function SynapseLogo({ size = 48, className = "" }: { size?: number; className?: string }) {
+export default function SynapseLogo({ size = 48, className = "", style }: { size?: number; className?: string; style?: React.CSSProperties }) {
   return (
     <svg
       width={size}
       height={size}
       viewBox="0 0 100 100"
       className={className}
-      style={{ filter: 'drop-shadow(0 0 8px rgba(0, 229, 255, 0.6))' }}
+      style={{ filter: 'drop-shadow(0 0 8px rgba(0, 229, 255, 0.6))', ...style }}
     >
       {/* Neural network nodes */}
       <circle cx="20" cy="20" r="4" fill="#00E5FF" className="animate-pulse" />
