@@ -174,23 +174,27 @@ export default function FractalMap({ archons, onNodeClick, selectedNodeId }: Fra
     const y = e.clientY - rect.top;
 
     // Find closest node
-    let closest: { node: RealityNode; distance: number } | null = null;
+    type ClosestNode = {
+      node: RealityNode;
+      distance: number;
+    };
+    let closest: ClosestNode | null = null;
     const width = canvas.width;
     const height = canvas.height;
 
-    nodesRef.current.forEach((node) => {
+    for (const node of nodesRef.current) {
       const nodeX = width / 2 + node.x;
       const nodeY = height / 2 + node.y;
       const distance = Math.sqrt(
         Math.pow(x - nodeX, 2) + Math.pow(y - nodeY, 2)
       );
 
-      if (!closest || distance < closest.distance) {
+      if (closest === null || distance < closest.distance) {
         closest = { node, distance };
       }
-    });
+    }
 
-    if (closest && closest.distance < 30) {
+    if (closest !== null && closest.distance < 30) {
       setHoveredNode(closest.node.id);
     } else {
       setHoveredNode(null);
