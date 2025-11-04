@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import MindLinkLogo from "./MindLinkLogo";
+import MythosLogo from "./MythosLogo";
 
 function shorten(pubkey: string) {
   return pubkey.slice(0, 4) + "…" + pubkey.slice(-4);
@@ -44,48 +44,48 @@ export default function NavBar() {
   }
   
   return (
-    <header className="bg-gradient-to-r from-dark-secondary/90 to-dark-primary/90 backdrop-blur-md border-b border-neon-cyan/30 shadow-lg">
+    <header className="bg-gradient-to-r from-dark-secondary/90 to-dark-primary/90 backdrop-blur-md border-b border-mythos-gold/40 shadow-lg">
       <div className="container-grid flex items-center justify-between py-4">
         <div className="flex items-center gap-3">
-          <MindLinkLogo size={40} className="animate-pulse" style={{ animationDuration: '3s' }} />
+          <MythosLogo size={40} className="animate-pulse" style={{ animationDuration: '3s' }} />
             <div className="leading-tight">
-              <div className="font-heading font-bold text-[21px] text-neon-cyan neon-glow">MINDLINK402</div>
-              <div className="text-[12px] text-neon-cyan/60 uppercase tracking-wider">Cognitive Network • Protocol 402</div>
+              <div className="font-heading font-bold text-[21px] text-mythos-gold myth-glow">MYTHOS402</div>
+              <div className="text-[12px] text-mythos-gold/60 uppercase tracking-wider">The Reality Protocol • Construct. Merge. Transcend</div>
             </div>
         </div>
         <div className="text-center hidden md:block">
-          <div className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-neon-light neon-glow">
-            Neural Fabric
+          <div className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-mythos-light myth-glow">
+            The Realm
           </div>
           <div className="badge-dot justify-center mt-1">
-            <span className="size-2 rounded-full bg-neon-cyan animate-pulse" style={{ boxShadow: '0 0 8px rgba(0, 250, 255, 0.9)' }}></span>
-            Cognition Verified
+            <span className="size-2 rounded-full bg-mythos-gold animate-pulse" style={{ boxShadow: '0 0 8px rgba(255, 215, 0, 1)' }}></span>
+            Reality Active
           </div>
         </div>
         <div className="flex items-center gap-3">
           {address ? (
             <button 
               onClick={onDisconnectClick} 
-              className="px-4 py-2 rounded-lg bg-neon-cyan/20 border border-neon-cyan/40 text-neon-cyan text-sm font-medium hover:bg-neon-cyan/30 hover:border-neon-cyan/60 transition-all"
+              className="px-4 py-2 rounded-lg bg-mythos-gold/20 border border-mythos-gold/40 text-mythos-gold text-sm font-medium hover:bg-mythos-gold/30 hover:border-mythos-gold/60 transition-all"
             >
               {shorten(address)} · Disconnect
             </button>
           ) : (
             <button 
               onClick={onConnectClick} 
-              className="btn-neon text-sm"
+              className="btn-ritual text-sm"
             >
-              Connect to the Network
+              Enter the Realm
             </button>
           )}
           <a
-            href={process.env.NEXT_PUBLIC_TWITTER_URL ?? "https://x.com/mindlink402"}
+            href="https://x.com/mythos402"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 grid place-items-center hover:bg-neon-cyan/20 transition-colors"
-            aria-label="Open Twitter"
+            className="w-12 h-12 rounded-full bg-mythos-gold/10 border border-mythos-gold/30 grid place-items-center hover:bg-mythos-gold/20 transition-colors"
+            aria-label="Open X (Twitter)"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-neon-cyan">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-mythos-gold">
               <path fill="currentColor" d="M18.244 2H21.5l-7.5 8.57L23 22h-6.23l-4.87-6.35L6.33 22H3.07l8.03-9.17L1 2h6.36l4.4 5.8L18.24 2Zm-1.09 18h1.69L7.93 4h-1.7l10.93 16Z"/>
             </svg>
           </a>

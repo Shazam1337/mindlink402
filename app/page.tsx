@@ -1,16 +1,15 @@
 "use client";
 import { useEffect, useState } from "react";
 import Heading from "@/components/Heading";
-import VaultSphere from "@/components/VaultSphere";
-import NeuralGrid from "@/components/NeuralGrid";
-import SignalStream from "@/components/SignalStream";
-import TransmitPanel from "@/components/TransmitPanel";
-import UserBoard from "@/components/UserBoard";
-import MindStats from "@/components/MindStats";
-import { useMindLinkData } from "@/hooks/useMindLinkData";
+import VaultOfEnergy from "@/components/VaultOfEnergy";
+import FractalMap from "@/components/FractalMap";
+import MythStream from "@/components/MythStream";
+import RealityForge from "@/components/RealityForge";
+import Pantheon from "@/components/Pantheon";
+import { useMythosData } from "@/hooks/useMythosData";
 
 export default function Page() {
-  const { signals, users, totalSol, currentUser, addSignal, setCurrentUser } = useMindLinkData();
+  const { events, archons, totalEssence, currentRealm, addEvent, setCurrentRealm } = useMythosData();
   const [walletAddress, setWalletAddress] = useState<string | null>(null);
   const [selectedNodeId, setSelectedNodeId] = useState<string | undefined>();
 
@@ -21,7 +20,9 @@ export default function Page() {
     const handleConnect = (pk: any) => {
       const address = String(pk?.publicKey ?? pk);
       setWalletAddress(address);
-      setCurrentUser(address);
+      // Generate realm name for new user
+      const realmName = `realm_${address.slice(0, 8)}`;
+      setCurrentRealm(address, realmName);
     };
     const handleDisconnect = () => {
       setWalletAddress(null);
@@ -39,15 +40,14 @@ export default function Page() {
       provider?.off?.("connect", handleConnect);
       provider?.off?.("disconnect", handleDisconnect);
     };
-  }, [setCurrentUser]);
+  }, [setCurrentRealm]);
 
-  const handleTransmit = (data: { target: string; amount: number; data?: string }) => {
-    addSignal({
-      from: walletAddress?.slice(0, 8) || "unknown",
-      to: data.target,
-      amount: data.amount,
-      status: "Processing",
-      data: data.data,
+  const handleForge = (data: { realmName: string; energyAmount: number; manifest?: string }) => {
+    addEvent({
+      type: "forge",
+      realm1: data.realmName,
+      energy: data.energyAmount,
+      message: data.manifest,
     });
   };
 
@@ -56,38 +56,28 @@ export default function Page() {
       <Heading />
 
       <div className="container-grid grid grid-cols-1 lg:grid-cols-12 gap-5">
-        {/* Left Column - Transmit & Stats */}
+        {/* Left Column - Reality Forge */}
         <div className="lg:col-span-3 space-y-4">
-          <TransmitPanel 
-            onTransmit={handleTransmit} 
+          <RealityForge 
+            onForge={handleForge} 
             disabled={!walletAddress}
-          />
-          <MindStats
-            walletAddress={walletAddress}
-            linkId={currentUser?.linkId}
-            level={currentUser?.level || 1}
-            xp={currentUser?.xp || 0}
-            xpToNext={currentUser?.xpToNext || 100}
-            signalsSent={currentUser?.signalsSent || 0}
-            signalsReceived={currentUser?.signalsReceived || 0}
-            energyBalance={currentUser?.energyBalance || 0}
           />
         </div>
 
-        {/* Center Column - Neural Grid & Signal Stream */}
+        {/* Center Column - Fractal Map & Myth Stream */}
         <div className="lg:col-span-6 space-y-4">
-          <NeuralGrid 
-            users={users}
+          <FractalMap 
+            archons={archons}
             onNodeClick={setSelectedNodeId}
             selectedNodeId={selectedNodeId}
           />
-          <SignalStream signals={signals} />
+          <MythStream events={events} />
         </div>
 
-        {/* Right Column - Vault & Leaderboard */}
+        {/* Right Column - Vault & Pantheon */}
         <div className="lg:col-span-3 space-y-4">
-          <VaultSphere totalSol={totalSol} />
-          <UserBoard users={users.slice(0, 8)} currentUserId={walletAddress || undefined} />
+          <VaultOfEnergy totalEssence={totalEssence} />
+          <Pantheon archons={archons.slice(0, 8)} currentUserId={walletAddress || undefined} />
         </div>
       </div>
     </main>

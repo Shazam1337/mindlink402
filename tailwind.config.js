@@ -7,15 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        neon: {
-          cyan: "#00faff",
-          violet: "#9a4fff",
-          amber: "#ffb300",
+        mythos: {
+          gold: "#FFD700",
+          turquoise: "#00FFF6",
+          purple: "#C77DFF",
           light: "#E6F3FF",
         },
         dark: {
-          primary: "#050508",
-          secondary: "#0A080F",
+          primary: "#000000",
+          secondary: "#0A0500",
         },
       },
       fontFamily: {

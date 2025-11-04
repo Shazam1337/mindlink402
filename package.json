@@ -1,7 +1,7 @@
 {
-  "name": "MINDLINK402",
-  "version": "2.0.0",
-  "description": "The Cognitive Network - Interactive decentralized neural network platform",
+  "name": "MYTHOS402",
+  "version": "3.0.0",
+  "description": "The Reality Protocol - Construct. Merge. Transcend.",
   "main": "next.config.js",
   "directories": {
     "lib": "lib"
