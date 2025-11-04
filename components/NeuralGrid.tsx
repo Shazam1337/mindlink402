@@ -166,27 +166,33 @@ export default function NeuralGrid({ users, onNodeClick, selectedNodeId }: Neura
     const y = e.clientY - rect.top;
 
     // Find closest node
-    let closest: { node: Node; distance: number } | null = null;
+    type ClosestNode = {
+      node: Node;
+      distance: number;
+    };
+    let closest: ClosestNode | null = null;
     const width = canvas.width;
     const height = canvas.height;
 
-    nodesRef.current.forEach((node) => {
+    for (const node of nodesRef.current) {
       const nodeX = width / 2 + node.x;
       const nodeY = height / 2 + node.y;
       const distance = Math.sqrt(
         Math.pow(x - nodeX, 2) + Math.pow(y - nodeY, 2)
       );
 
-      if (!closest || distance < closest.distance) {
+      if (closest === null || distance < closest.distance) {
         closest = { node, distance };
       }
-    });
-
-    if (closest && closest.distance < 30) {
-      setHoveredNode(closest.node.id);
-    } else {
-      setHoveredNode(null);
     }
+
+    if (closest) {
+      if (closest.distance < 30) {
+        setHoveredNode(closest.node.id);
+        return;
+      }
+    }
+    setHoveredNode(null);
   };
 
   const handleClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
