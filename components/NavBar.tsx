@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import SynapseLogo from "./SynapseLogo";
+import MindLinkLogo from "./MindLinkLogo";
 
 function shorten(pubkey: string) {
   return pubkey.slice(0, 4) + "…" + pubkey.slice(-4);
@@ -44,22 +44,22 @@ export default function NavBar() {
   }
   
   return (
-    <header className="bg-gradient-to-r from-dark-secondary/90 to-dark-primary/90 backdrop-blur-md border-b border-neon-cyan/20 shadow-lg">
+    <header className="bg-gradient-to-r from-dark-secondary/90 to-dark-primary/90 backdrop-blur-md border-b border-neon-cyan/30 shadow-lg">
       <div className="container-grid flex items-center justify-between py-4">
         <div className="flex items-center gap-3">
-          <SynapseLogo size={40} className="animate-pulse" style={{ animationDuration: '3s' }} />
+          <MindLinkLogo size={40} className="animate-pulse" style={{ animationDuration: '3s' }} />
             <div className="leading-tight">
-              <div className="font-heading font-bold text-[21px] text-neon-cyan neon-glow">SYNAPSE402</div>
-              <div className="text-[12px] text-neon-cyan/60 uppercase tracking-wider">Neural Network • Layer 402</div>
+              <div className="font-heading font-bold text-[21px] text-neon-cyan neon-glow">MINDLINK402</div>
+              <div className="text-[12px] text-neon-cyan/60 uppercase tracking-wider">Cognitive Network • Protocol 402</div>
             </div>
         </div>
         <div className="text-center hidden md:block">
           <div className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-neon-light neon-glow">
-            Neural Hub
+            Neural Fabric
           </div>
           <div className="badge-dot justify-center mt-1">
-            <span className="size-2 rounded-full bg-neon-cyan animate-pulse" style={{ boxShadow: '0 0 8px rgba(0, 229, 255, 0.8)' }}></span>
-            Network Active
+            <span className="size-2 rounded-full bg-neon-cyan animate-pulse" style={{ boxShadow: '0 0 8px rgba(0, 250, 255, 0.9)' }}></span>
+            Cognition Verified
           </div>
         </div>
         <div className="flex items-center gap-3">
@@ -75,11 +75,11 @@ export default function NavBar() {
               onClick={onConnectClick} 
               className="btn-neon text-sm"
             >
-              Link to the Synapse
+              Connect to the Network
             </button>
           )}
           <a
-            href={process.env.NEXT_PUBLIC_TWITTER_URL ?? "https://x.com/Synapse402_xyz"}
+            href={process.env.NEXT_PUBLIC_TWITTER_URL ?? "https://x.com/mindlink402"}
             target="_blank"
             rel="noopener noreferrer"
             className="w-12 h-12 rounded-full bg-neon-cyan/10 border border-neon-cyan/30 grid place-items-center hover:bg-neon-cyan/20 transition-colors"

@@ -8,18 +8,19 @@ module.exports = {
     extend: {
       colors: {
         neon: {
-          cyan: "#00E5FF",
-          purple: "#9C27FF",
+          cyan: "#00faff",
+          violet: "#9a4fff",
+          amber: "#ffb300",
           light: "#E6F3FF",
         },
         dark: {
-          primary: "#050A0F",
-          secondary: "#0F1B2A",
+          primary: "#050508",
+          secondary: "#0A080F",
         },
       },
       fontFamily: {
-        heading: ['Orbitron', 'Rajdhani', 'sans-serif'],
-        body: ['Space Grotesk', 'Inter', 'sans-serif'],
+        heading: ['Orbitron', 'Exo', 'sans-serif'],
+        body: ['Inter', 'Urbanist', 'sans-serif'],
       },
       animation: {
         'neural-pulse': 'neural-pulse 3s ease-in-out infinite',

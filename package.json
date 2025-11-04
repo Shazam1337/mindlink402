@@ -1,7 +1,7 @@
 {
-  "name": "SYNAPSE402",
-  "version": "1.0.0",
-  "description": "The Neural Network of the Community",
+  "name": "MINDLINK402",
+  "version": "2.0.0",
+  "description": "The Cognitive Network - Interactive decentralized neural network platform",
   "main": "next.config.js",
   "directories": {
     "lib": "lib"
